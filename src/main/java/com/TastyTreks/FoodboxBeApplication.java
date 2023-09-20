@@ -1,4 +1,4 @@
-package com.Foodbox;
+package com.TastyTreks;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
