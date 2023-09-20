@@ -2,8 +2,8 @@ package com.TastyTreks.Service;
 
 import java.util.List;
 
-import com.TastyTreks.Products;
 import com.TastyTreks.Repository.ProductRepository;
+import com.TastyTreks.pojos.Products;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

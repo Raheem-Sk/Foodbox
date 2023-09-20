@@ -1,4 +1,4 @@
-package com.TastyTreks;
+package com.TastyTreks.pojos;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

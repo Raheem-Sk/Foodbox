@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.TastyTreks.Products;
 import com.TastyTreks.Service.ProductService;
+import com.TastyTreks.pojos.Products;
 
 @RestController
 public class ProductController {
