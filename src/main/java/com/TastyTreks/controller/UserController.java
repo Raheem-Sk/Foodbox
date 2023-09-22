@@ -30,7 +30,7 @@ public class UserController {
 		
 	//Login user API
 	@SuppressWarnings("unchecked")
-	@GetMapping("/login")
+	@PostMapping("/login")
 	public ResponseEntity<User> login(@RequestBody User u){
 		return (ResponseEntity<User>) uServe.login(u) ;
 		
@@ -53,7 +53,7 @@ public class UserController {
 		return "successfully deleted";
 	}
 	
-	@PutMapping("/changepassowrd/{id}")
+	@PutMapping("/changepassword/{id}")
 	public String changepassword(@PathVariable long id ,@RequestBody User  ur) {
 		return uServe.changepassword(id,ur);
 	}
