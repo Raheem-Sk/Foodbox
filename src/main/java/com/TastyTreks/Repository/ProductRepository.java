@@ -8,6 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 import com.TastyTreks.pojos.Products;
 
 public interface  ProductRepository  extends JpaRepository<Products,Long>{
+
+	@Query("SELECT p FROM Products p WHERE p.name LIKE CONCAT('%', ?1, '%')")
+	List<Products> productSearch(String s);
 	
 }
 

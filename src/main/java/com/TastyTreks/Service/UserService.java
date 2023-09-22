@@ -24,8 +24,6 @@ public class UserService {
 		return repo.findAll();
 	}
 	
-	
-
 	public ResponseEntity<?> login(User u) {
 		User a = repo.findUser(u.getEmailId());
 		if(a.getPassword().equals(u.getPassword())) {
@@ -34,20 +32,34 @@ public class UserService {
 		return (ResponseEntity<?>) ResponseEntity.internalServerError();
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public User  updateuser(long id, User ur) {
+		if(repo.findById(id).isPresent()) {
+			User  u=repo.findById(id).get();
+			u.setUserName(ur.getUserName());
+			u.setEmailId(ur.getEmailId());
+			u.setMobile(ur.getMobile());
+			u.setAddress(ur.getAddress());
+			repo.save(u);
+			
+		}
+		return repo.findById(id).get();
+	}
+
+	public void deleteuser(long id) {
+		
+		repo.deleteById(id);
+	}
+
+	public String changepassword(long id,User u) {
+		if(repo.findById(id).isPresent()) {
+			User  ur=repo.findById(id).get();
+			ur.setPassword(u.getPassword());
+			repo.save(ur);
+          return "password updated sucessfully";
+		}
+		
+		return "password change failed to update";
+	}
+
 	
 }

@@ -16,6 +16,15 @@ public class Products {
 	private float price;
 	private float offers;
 	private String avail;
+	private String imagepath;
+
+	public String getImagepath() {
+		return imagepath;
+	}
+
+	public void setImagepath(String imagepath) {
+		this.imagepath = imagepath;
+	}
 
 	public long getId() {
 		return id;
