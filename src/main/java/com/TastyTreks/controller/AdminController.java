@@ -26,7 +26,7 @@ public class AdminController {
 		return "sucessfull";
 	}
 	
-	@GetMapping("/login")
+	@PostMapping("/login")
 	public ResponseEntity<?> login(@RequestBody Admin admin){
 		return adminService.login(admin) ;
 		

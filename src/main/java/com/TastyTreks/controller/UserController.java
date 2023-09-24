@@ -55,7 +55,7 @@ public class UserController {
 		return "successfully deleted";
 	}
 	
-	@PutMapping("/changepassowrd/{id}")
+	@PutMapping("/changepassword/{id}")
 	public String changepassword(@PathVariable long id ,@RequestBody User  ur) {
 		return uServe.changepassword(id,ur);
 	}

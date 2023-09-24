@@ -20,7 +20,7 @@ public class AdminService {
 	public ResponseEntity<?> login(Admin admin) {
 		Admin a=adminRepository.findByCategory(admin.getEmailId());
 		if(a.getPassword().equals(admin.getPassword())) {
-			return ResponseEntity.ok(admin);
+			return ResponseEntity.ok(a);
 		}
 		return (ResponseEntity<?>) ResponseEntity.internalServerError();
 	}
