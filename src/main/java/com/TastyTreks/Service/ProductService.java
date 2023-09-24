@@ -52,5 +52,10 @@ private ProductRepository repo;
 	public Products productSerach(long id) {
 		return repo.findById(id).get();
 	}
+
+	public List<Products> productSearchbycusine(String s) {
+		List<Products> pl=repo.productSearchbycusine(s);
+		return pl;
+	}
 	
 }

@@ -3,6 +3,7 @@ package com.TastyTreks.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +18,10 @@ import com.TastyTreks.pojos.Products;
 
 @RestController
 @RequestMapping("/product")
+@CrossOrigin(origins="*")
 public class ProductController {
 	@Autowired
 	private ProductService productService;
-	
 	
 
 	@GetMapping("/allproducts")
@@ -46,10 +47,16 @@ public class ProductController {
 		return "successfully deleted";
 	}
 	
-	@GetMapping("/search")
+	@PostMapping("/search")
 	public List<Products> productSearch(@RequestBody String s)
 	{
 		return productService.productSearch(s);
+		
+	}
+	@PostMapping("/searchbycusine")
+	public List<Products> productSearchbycusine(@RequestBody String s)
+	{
+		return productService.productSearchbycusine(s);
 		
 	}
 	
