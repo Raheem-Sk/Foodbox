@@ -44,9 +44,20 @@ public class UserController {
 		return uServe.GetAll();
 	}
 	
+	@GetMapping("/user/{id}")
+	public User getUserbyId(@PathVariable Long id){
+		System.out.println("called");
+		return uServe.getUserbyId(id);
+	}
+	
 	@PutMapping("/update/{id}")
 	public User update(@PathVariable long id ,@RequestBody User  ur) {
 		return uServe.updateuser(id,ur);
+	}
+		
+	@PutMapping("/wallet/{id}")
+	public void wallet(@PathVariable long id ,@RequestBody float ur) {
+		 uServe.updatewallet(id,ur);
 		
 	}
 	@DeleteMapping("/delete/{id}")
@@ -56,7 +67,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/changepassword/{id}")
-	public String changepassword(@PathVariable long id ,@RequestBody User  ur) {
-		return uServe.changepassword(id,ur);
+	public String changepassword(@PathVariable long id ,@RequestBody String  pass) {
+		return uServe.changepassword(id,pass);
 	}
 }

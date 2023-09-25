@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.TastyTreks.Service.CartService;
 import com.TastyTreks.pojos.Cart;
+import com.TastyTreks.pojos.Products;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -26,11 +27,14 @@ public class CartController {
 	@Autowired
 	CartService cartService;
 	
-	
 	@PostMapping("/Add")
-	public String addtocart(@RequestBody Cart cart) {
-		System.out.println(cart.getProduct().getPrice());
-		return cartService.addToCart(cart);
+	public void addtocart(@RequestBody Products product) {
+		System.out.println(product.getPrice());
+		Cart cart=new Cart();
+		cart.setQuantity(1);
+		cart.setPrice(product.getPrice());
+		cart.setProduct(product);
+		 cartService.addToCart(cart);
 		
 		
 	}

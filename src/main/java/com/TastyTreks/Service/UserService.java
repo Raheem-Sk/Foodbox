@@ -50,15 +50,31 @@ public class UserService {
 		repo.deleteById(id);
 	}
 
-	public String changepassword(long id,User u) {
+	public String changepassword(long id,String pass) {
 		if(repo.findById(id).isPresent()) {
 			User  ur=repo.findById(id).get();
-			ur.setPassword(u.getPassword());
+			ur.setPassword(pass);
 			repo.save(ur);
           return "password updated sucessfully";
 		}
 		
 		return "password change failed to update";
+	}
+
+	public User getUserbyId(Long id) {
+		
+		return repo.findById(id).get();
+	}
+
+	public void updatewallet(long id, float ur) {
+		if(repo.findById(id).isPresent()) {
+			User  u=repo.findById(id).get();
+			u.setWallet(ur);
+			repo.save(u);
+           
+		}
+		
+		
 	}
 
 	

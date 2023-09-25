@@ -40,8 +40,9 @@ private ProductRepository repo;
 		return null;
 	}
 
-	public void deleteproduct(long id) {
+	public List<Products> deleteproduct(long id) {
 		repo.deleteById(id);
+		return repo.findAll();
 	}
 
 	public List<Products> productSearch(String s) {
